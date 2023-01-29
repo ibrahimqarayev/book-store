@@ -13,8 +13,8 @@ public class BookController {
     }
 
     @GetMapping("/")
-    public String home() {
-        return "home";
+    public String index() {
+        return "index";
     }
 
 }
