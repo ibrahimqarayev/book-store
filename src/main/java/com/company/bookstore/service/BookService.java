@@ -1,4 +1,14 @@
 package com.company.bookstore.service;
 
+import com.company.bookstore.repository.BookRepository;
+import org.springframework.stereotype.Service;
+
+@Service
 public class BookService {
+    private final BookRepository bookRepository;
+
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
 }
