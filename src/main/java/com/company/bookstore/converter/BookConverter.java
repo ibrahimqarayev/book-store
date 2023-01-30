@@ -17,7 +17,7 @@ public class BookConverter {
         );
     }
 
-    public BookDto toBookDto(BookDto from) {
+    public BookDto toBookDto(BookEntity from) {
         return new BookDto(
                 from.getId(),
                 from.getName(),
