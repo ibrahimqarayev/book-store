@@ -1,8 +1,15 @@
 package com.company.bookstore.controller;
 
+import com.company.bookstore.dto.BookDto;
+import com.company.bookstore.entity.BookEntity;
 import com.company.bookstore.service.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -12,14 +19,19 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping({"/", "/index"})
+    @GetMapping("/index")
     public String indexPage() {
         return "index";
     }
 
     @GetMapping("/books")
-    public String getAllBooks() {
-        return "books";
+    public ModelAndView getAllBooks() {
+        List<BookDto> list = bookService.getAllBooks();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("books");
+//        modelAndView.addObject("book", list);
+//        return modelAndView;
+        return new ModelAndView("books", "book", list);
     }
 
     @GetMapping("/search")
@@ -45,6 +57,17 @@ public class BookController {
     @GetMapping("/details")
     public String details() {
         return "subpage";
+    }
+
+    @GetMapping("/questions")
+    public String questtions() {
+        return "questions";
+    }
+
+    @PostMapping("/add")
+    public String addBook(@ModelAttribute BookEntity bookEntity) {
+        bookService.addBook(bookEntity);
+        return "redirect:/books";
     }
 
 
