@@ -27,5 +27,11 @@ public class BookService {
         return bookRepository.findAll().stream().map(bookEntity -> bookConverter.toBookDto(bookEntity)).collect(Collectors.toList());
     }
 
+    public List<BookDto> searchBookByName(String name) {
+        return bookRepository.findByName(name).orElseThrow(() -> new RuntimeException("Book not found"));
+    }
+
+
+
 
 }
