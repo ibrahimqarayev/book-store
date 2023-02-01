@@ -64,6 +64,11 @@ public class BookController {
         return "questions";
     }
 
+    @GetMapping("/faqs")
+    public String faqs() {
+        return "faqs";
+    }
+
     @PostMapping("/add")
     public String addBook(@ModelAttribute BookEntity bookEntity) {
         bookService.addBook(bookEntity);
