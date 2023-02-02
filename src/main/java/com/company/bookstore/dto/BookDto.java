@@ -5,17 +5,17 @@ public class BookDto {
     private Integer id;
     private String name;
     private String author;
-    private String title;
+    private String description;
     private Double price;
 
     public BookDto() {
     }
 
-    public BookDto(Integer id, String name, String author, String title, Double price) {
+    public BookDto(Integer id, String name, String author, String description, Double price) {
         this.id = id;
         this.name = name;
         this.author = author;
-        this.title = title;
+        this.description = description;
         this.price = price;
     }
 
@@ -43,12 +43,12 @@ public class BookDto {
         this.author = author;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Double getPrice() {
