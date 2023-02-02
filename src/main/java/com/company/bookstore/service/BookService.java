@@ -19,19 +19,17 @@ public class BookService {
         this.bookConverter = bookConverter;
     }
 
-    public BookDto addBook(BookEntity bookEntity) {
-        return bookConverter.toBookDto(bookEntity);
+    public void save(BookEntity bookEntity) {
+        bookRepository.save(bookEntity);
     }
 
     public List<BookDto> getAllBooks() {
         return bookRepository.findAll().stream().map(bookEntity -> bookConverter.toBookDto(bookEntity)).collect(Collectors.toList());
     }
 
-    public List<BookDto> searchBookByName(String name) {
-        return bookRepository.findByName(name).orElseThrow(() -> new RuntimeException("Book not found"));
+    public BookDto getBookById(Integer id) {
+       return bookConverter.toBookDto(bookRepository.findById(id).orElseThrow(()-> new RuntimeException("Book Not Found")));
+
     }
-
-
-
 
 }
