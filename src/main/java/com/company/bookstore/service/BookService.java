@@ -29,7 +29,10 @@ public class BookService {
 
     public BookDto getBookById(Integer id) {
        return bookConverter.toBookDto(bookRepository.findById(id).orElseThrow(()-> new RuntimeException("Book Not Found")));
+    }
 
+    public void deleteBookById(Integer id){
+        bookRepository.deleteById(id);
     }
 
 }
