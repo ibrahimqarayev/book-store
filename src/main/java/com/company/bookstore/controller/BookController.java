@@ -8,10 +8,7 @@ import com.company.bookstore.service.BookService;
 import com.company.bookstore.service.MyBooksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -111,12 +108,12 @@ public class BookController {
         return "myBooks";
     }
 
-
     @GetMapping("/myList/{id}")
     public String getMyBooksById(@PathVariable Integer id) {
         BookDto bookDto = bookService.getBookById(id);
         myBooksService.saveMyBooks(bookConverter.toMyBooks(bookDto));
         return "redirect:/my_books";
     }
+
 
 }
