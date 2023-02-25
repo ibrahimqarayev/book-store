@@ -116,7 +116,9 @@ public class BookController {
     }
 
     @GetMapping("/editBook/{id}")
-    public String editBook() {
+    public String editBook(@PathVariable Integer id,Model model) {
+        BookDto b = bookService.getBookById(id);
+        model.addAttribute("book",b);
         return "bookEdit";
     }
 
