@@ -115,5 +115,10 @@ public class BookController {
         return "redirect:/my_books";
     }
 
+    @GetMapping("/editBook/{id}")
+    public String editBook() {
+        return "bookEdit";
+    }
+
 
 }
