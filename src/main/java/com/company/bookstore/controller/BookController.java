@@ -25,54 +25,6 @@ public class BookController {
         this.bookConverter = bookConverter;
     }
 
-    @GetMapping("/index")
-    public String indexPage() {
-        return "index";
-    }
-
-    @GetMapping("/books")
-    public String getAllBooks() {
-        return "books";
-    }
-
-    @GetMapping("/search")
-    public String searchBook() {
-        return "search";
-    }
-
-
-    @GetMapping("/new_releases")
-    public String newReleases() {
-        return "newReleases";
-    }
-
-    @GetMapping("/contact")
-    public String contactUs() {
-        return "contact";
-    }
-
-    @GetMapping("/company")
-    public String aboutCompany() {
-        return "company";
-    }
-
-    @GetMapping("/details")
-    public String details() {
-        return "subpage";
-    }
-
-    @GetMapping("/questions")
-    public String questtions() {
-        return "questions";
-    }
-
-    @GetMapping("/faqs")
-    public String faqs() {
-        return "faqs";
-    }
-
-// -------------
-
     @GetMapping("/home")
     public String home() {
         return "home";
