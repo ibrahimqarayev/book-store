@@ -24,15 +24,12 @@ public class BookService {
     }
 
     public List<BookDto> getAllBooks() {
-        return bookRepository.findAll().stream().map(bookEntity -> bookConverter.toBookDto(bookEntity)).collect(Collectors.toList());
+        return bookRepository.findAll().stream().map(bookConverter::toBookDto).collect(Collectors.toList());
     }
 
     public BookDto getBookById(Integer id) {
        return bookConverter.toBookDto(bookRepository.findById(id).orElseThrow(()-> new RuntimeException("Book Not Found")));
     }
 
-    public void deleteBookById(Integer id){
-        bookRepository.deleteById(id);
-    }
 
 }
